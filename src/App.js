@@ -4,12 +4,13 @@ import './App.css'
 import Checker from './lib/checker'
 
 const App = () => {
-  const [text, setText] = useState()
+  const [text, setText] = useState('')
   const [result, setResult] = useState()
   const check = () => {
     let newResult
+    const checker = new Checker(text)
     try {
-      newResult = Checker(text)
+      newResult = checker.check()
     } catch (err) {
       newResult = err.message
       console.log(err.stack)
